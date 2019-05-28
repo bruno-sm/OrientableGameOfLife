@@ -38,24 +38,56 @@ func _process(delta):
 			update_grid()
 
 
+func sphere_mov_x(p, inc):
+	var np = p + Vector2(inc, 0)
+	if np.x < 0 or np.x >= n:
+		np = Vector2(p.y, p.x)
+	return np
+	
+func sphere_mov_y(p, inc):
+	var np = p + Vector2(0, inc)
+	if np.y < 0 or np.y >= n:
+		np = Vector2(p.y, p.x)
+	return np
+	
+func sphere_mov(p, inc):
+	var np = p + Vector2(inc.x, 0)
+	if np.x < 0 or np.x >= n:
+		np = Vector2(p.y, p.x)
+		return sphere_mov(np, Vector2(inc.y, 0))
+
+	if np.y + inc.y < 0 or np.y + inc.y >= n:
+		return Vector2(np.y, np.x)
+	return np + Vector2(0, inc.y)
+
+
 func update_grid():
 	for i in range(0, n, 1):
 		for j in range(0, n, 1):
-			var s = grid[(i-1+n) % n][(j-1+n) % n]
-			s += grid[i][(j-1+n) % n]
-			s += grid[(i+1) % n][(j-1+n) % n]
-			s += grid[(i-1+n) % n][j]
-			s += grid[(i+1) % n][j]
-			s += grid[(i-1+n) % n][(j+1) % n]
-			s += grid[i][(j+1) % n]
-			s += grid[(i+1) % n][(j+1) % n]
+			var p = Vector2(i, j)
+			var np = sphere_mov(p, Vector2(-1, -1))
+			var s = grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(0, -1))
+			s += grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(1, -1))
+			s += grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(-1, 0))
+			s += grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(1, 0))
+			s += grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(-1, 1))
+			s += grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(0, 1))
+			s += grid[np.x][np.y]
+			np = sphere_mov(p, Vector2(1, 1))
+			s += grid[np.x][np.y]
 			if s == 3:
 				aux_grid[i][j] = 1
 			elif s == 2:
 				aux_grid[i][j] = grid[i][j]
 			else:
 				aux_grid[i][j] = 0
-				
+
 	for i in range(0, n, 1):
 		grid[i] = aux_grid[i].duplicate()
 
@@ -68,7 +100,7 @@ func _draw():
 			if grid[i][j] == 1:
 				color = cell_color
 			draw_rect(Rect2(i*10, j*10, 10, 10), color)
-			
+
 	# Draw grid lines -----------------------------------------
 	for i in range(1, n, 1):
 		draw_line(Vector2(i*10, 0), Vector2(i*10, n*10), lines_color, 2)
@@ -80,8 +112,8 @@ func _draw():
 	draw_line(Vector2(0, n*10), Vector2(n*10, n*10), border_color, 4)
 
 
-var pressed = false
 var write_value = 1
+var pressed = false
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and dialog == 0:
 		pressed = true
@@ -103,10 +135,10 @@ func _input(event):
 		var y = int(floor(p.y)/10)
 		if x >= 0 and x < n and y >=0 and y < n:
 			grid[x][y] = write_value
-		
+
 	elif event is InputEventKey and event.is_pressed() and event.scancode == KEY_SPACE:
 		stop = not stop
-	
+
 	elif event is InputEventKey and event.is_pressed() and event.scancode == KEY_ESCAPE:
 		get_tree().change_scene("res://MainMenu.tscn")
 		
@@ -152,17 +184,17 @@ func _on_SaveFileDialog_file_selected(path):
 	f.close()
 
 
-func _on_OpenFileDialog_popup_hide():
-	dialog -= 1
-
-
 func _on_OpenFileDialog_about_to_show():
 	dialog += 1
 
 
-func _on_SaveFileDialog_popup_hide():
+func _on_OpenFileDialog_popup_hide():
 	dialog -= 1
 
 
 func _on_SaveFileDialog_about_to_show():
 	dialog += 1
+
+
+func _on_SaveFileDialog_popup_hide():
+	dialog -= 1
