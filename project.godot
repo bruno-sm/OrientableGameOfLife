@@ -16,10 +16,10 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=800
+window/size/width=900
 window/size/height=800
 
 [rendering]
 
-environment/default_clear_color=Color( 0.929688, 0.929688, 0.929688, 1 )
+environment/default_clear_color=Color( 0.964844, 0.964844, 0.964844, 1 )
 environment/default_environment="res://default_env.tres"

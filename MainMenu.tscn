@@ -16,7 +16,7 @@ light_mode = 0
 [sub_resource type="Theme" id=2]
 
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" index="0"]
 
 material = SubResource( 1 )
 anchor_left = 0.0
@@ -43,7 +43,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 760.0
+margin_right = 860.0
 margin_bottom = 720.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -62,7 +62,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 43.0
-margin_right = 752.0
+margin_right = 852.0
 margin_bottom = 266.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -79,7 +79,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 752.0
+margin_right = 852.0
 margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -98,7 +98,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 105.0
-margin_right = 752.0
+margin_right = 852.0
 margin_bottom = 223.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -117,7 +117,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 326.0
-margin_right = 752.0
+margin_right = 852.0
 margin_bottom = 676.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -125,7 +125,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/separation = 113
+custom_constants/separation = 90
 alignment = 1
 _sections_unfolded = [ "Margin", "Rect", "Size Flags", "Theme", "custom_constants" ]
 
@@ -135,18 +135,19 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 362.0
+margin_left = 63.0
+margin_right = 475.0
 margin_bottom = 350.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 9
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.91
 custom_constants/margin_top = 53
 custom_constants/margin_left = 23
-_sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_constants" ]
+_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer" index="0"]
 
@@ -156,18 +157,18 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 23.0
 margin_top = 53.0
-margin_right = 362.0
+margin_right = 412.0
 margin_bottom = 350.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 9
 size_flags_vertical = 1
 custom_constants/separation = 52
 alignment = 0
 script = ExtResource( 3 )
-_sections_unfolded = [ "Anchor", "custom_constants" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Size Flags", "custom_constants" ]
 
 [node name="TorusOption" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" index="0"]
 
@@ -175,17 +176,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 339.0
+margin_right = 389.0
 margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-size_flags_horizontal = 1
+size_flags_horizontal = 9
 size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
-_sections_unfolded = [ "Mouse" ]
+_sections_unfolded = [ "Mouse", "Size Flags" ]
 
 [node name="SphereOption" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" index="1"]
 
@@ -194,16 +195,17 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 99.0
-margin_right = 339.0
+margin_right = 389.0
 margin_bottom = 139.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-size_flags_horizontal = 1
+size_flags_horizontal = 9
 size_flags_vertical = 1
 texture = ExtResource( 5 )
 stretch_mode = 0
+_sections_unfolded = [ "Size Flags" ]
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer" index="1"]
 
@@ -211,17 +213,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 475.0
-margin_right = 752.0
+margin_left = 565.0
+margin_right = 789.0
 margin_bottom = 350.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
+size_flags_horizontal = 9
 size_flags_vertical = 1
 use_top_left = false
-_sections_unfolded = [ "Margin", "Size Flags", "custom_constants" ]
+_sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_constants" ]
 
 [node name="Filler" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterContainer2" index="0"]
 
@@ -229,8 +231,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 26.0
-margin_right = 250.0
+margin_right = 224.0
 margin_bottom = 350.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
