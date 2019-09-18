@@ -4,7 +4,7 @@ Game of life on a sphere and a torus
 ## Examples
 
 #### Menu
-![](MainScreen.gif =510x500)
+![](MainScreen.gif)
 
 #### Spaceships on a torus
 ![](Torus.gif =510x500)
