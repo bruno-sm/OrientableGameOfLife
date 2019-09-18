@@ -4,13 +4,13 @@ Game of life on a sphere and a torus
 ## Examples
 
 #### Menu
-![](MainScreen.gif | width=500)
+![](MainScreen.gif)
 
 #### Spaceships on a torus
-![](Torus.gif =510x500)
+![](Torus.gif)
 
 #### Puffer on a sphere
-![](Sphere.gif =510x500)
+![](Sphere.gif)
 
 
 ## Usage
